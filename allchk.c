@@ -28,13 +28,13 @@
 #define ever (;;)
 
 //宣言集
-int SWPwm[4]={0,0,0,0};
+int SWPwm[4]={0,0,0,0};		//unused
 
 void setup();
-void TmWait();
-void mode_judge();
-int PWM_COUNT=PWM_MAX;
-int state[3],old_state[3];	//stateはメイン状態/その時間/その他の状態
+void TmWait();				//カウンタがフルになるまで待つ
+void mode_judge();			割り込みようモード判定
+unsigned int PWM_COUNT=PWM_MAX;
+unsigned int state[3],old_state[3];	//stateはメイン状態/その時間/その他の状態
 int pin[3],old_pin[3];		//
 int i,j,k;					//counterを回す用
 
@@ -74,6 +74,13 @@ void main(){
 		for(i=0;i<200;i++){
 			TmWait();
 		}
+		/*
+		
+		for (PWM_COUNT=PWM_MAX;PWM_COUNT<1;PWM_COUNT--){
+			if(state[1]>PWM_COUNT) 	PORTA = state[0];
+			else 					PORTA = state[2];
+		
+		*/
 
 
 	}
@@ -194,6 +201,60 @@ void mode_judge(void){
 		state[1]=PWM_MAX-1;
 		state[2]=STOP;
 	}
+}
+
+void teiki(void){
+	//escape and reading
+	for(i=0;i<3;i++){
+		old_pin[i]=pin[i];
+		pin[i]=PORTB & (1<<i);
+		old_=state[i]=state[i];
+	}
 	
-	
+	//mode judge
+	if(!pin[LS_Center]){
+		state[0] = FORWARD;
+		state[2] = STOP;
+		if(pin[LS_Left]==pin[LS_Right]){
+			// b b b or w b w
+			state[1]=PWM_MAX+1;
+		}
+		else{
+			if(!pin[LS_Left]){
+				//b b w
+				state[0]=L_TURN;
+			}
+			else{
+				//w b b
+				state[0]=R_TURN;
+			}
+			state[1]=PWM_MAX/2;
+			state[2]=FORWARD;
+		}
+	}
+	else if(!pin[LS_Left]){
+		if(old_state[0]==L_TURN){
+			state[0]=L_TURNV;
+		}
+		else{
+			state[0]=L_TURN;
+		}
+		state[1]=PWM_MAX/2;
+		state[2]=STOP;
+	}
+	else if(!pin[LS_Right]){
+		if(old_state[0]==R_TURN){
+			state[0]=R_TURNV;
+		}
+		else{
+			state[0]=R_TURN;
+		}
+		state[1]=PWM_MAX/2;
+		state[2]=STOP;
+	}
+	else{
+		state[0]=FORWARD;
+		state[1]=PWM_MAX-1;
+		state[2]=STOP;
+	}
 }
