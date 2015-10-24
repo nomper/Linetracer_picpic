@@ -1,0 +1,13 @@
+ÀÄsource
+   ÃÄMAIN  0/162  Ram=2
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄsetup  0/17  Ram=0
+   ³  ÃÄ@delay_ms1  0/19  Ram=1
+   ³  ÃÄ@delay_ms1  0/19  Ram=1
+   ³  ÃÄ@delay_ms1  0/19  Ram=1
+   ³  ÃÄ@delay_ms1  0/19  Ram=1
+   ³  ÃÄ@delay_ms1  0/19  Ram=1
+   ³  ÃÄ@delay_ms1  0/19  Ram=1
+   ³  ÀÄ@delay_ms1  0/19  Ram=1
+   ÀÄTIMER0_isr  0/10  Ram=0
+      ÀÄ@delay_ms1  0/19  Ram=1
