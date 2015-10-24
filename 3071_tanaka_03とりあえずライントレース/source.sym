@@ -1,0 +1,60 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+009-00A @READ_PROGRAM_MEMORY8.P1
+00C     @SCRATCH
+00D     @SCRATCH
+00D     _RETURN_
+00E     @SCRATCH
+00F     @SCRATCH
+010-013 SWPwm
+014     PWM_COUNT
+015-017 state
+018-01A old_state
+01B-01D pin
+01E-020 old_pin
+021     i
+022     j
+023     k
+024     @delay_ms1.P1
+024     main.@SCRATCH1
+025     main.@SCRATCH2
+
+ROM Allocation:
+000004  setup
+00000F  @delay_ms1
+000022  main
+000022  @cinit1
+000027  @cinit2
+
+Project Directory:
+    C:\Users\denshi\Documents\2015_Tracer_Program\3071_tanaka\
+
+Project Files:
+    source.c                                                [22-10-15 17:05  CRC=9A31620B]
+    ..\..\..\..\..\Program Files\PICC\devices\16f84a.h      [26-6-15 10:08  CRC=ADDDA080]
+
+Source signature=F5ECA30B
+Program memory checksum=0000
+Program memory CRC=0000
+Hex file CRC=2DD5
+
+Units:
+    source (main)
+
+Compiler Settings:
+    Processor:      PIC16F84A
+    Pointer Size:   8
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+    Predefined symbols:
+       #define __16F84A TRUE
+
+Output Files:
+    Errors:      source.err
+    INHX8:       source.hex
+    Symbols:     source.sym
+    List:        source.lst
+    Debug/COFF:  source.cof
+    Project:     source.ccspjt
+    Call Tree:   source.tre

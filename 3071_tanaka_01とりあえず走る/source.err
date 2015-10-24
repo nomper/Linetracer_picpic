@@ -1,0 +1,6 @@
+>>> Warning 203 "source.c" Line 63(1,1): Condition always TRUE
+>>> Warning 202 "source.c" Line 35(5,10): Variable never used:   SWPwm
+>>> Warning 202 "source.c" Line 44(9,10): Variable never used:   k
+      Memory usage:   ROM=16%      RAM=38% - 38%
+      0 Errors,  3 Warnings.
+Build Successful.
