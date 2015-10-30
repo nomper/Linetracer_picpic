@@ -36,7 +36,7 @@ file_000=no
 file_001=yes
 file_002=yes
 [FILE_INFO]
-file_000=C:\Users\denshi\Documents\2015_Tracer_Program\3071_tanaka\source.c
+file_000=source.c
 file_001=C:\Users\denshi\Documents\2015_Tracer_Program\3071_tanaka\source.SYM
 file_002=C:\Users\denshi\Documents\2015_Tracer_Program\3071_tanaka\source.TRE
 [SUITE_INFO]

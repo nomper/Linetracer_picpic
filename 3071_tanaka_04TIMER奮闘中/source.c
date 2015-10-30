@@ -1,3 +1,4 @@
+#include <pic.h>
 #include <16f84a.h>
 #fuses HS,PUT,NOWDT,NOPROTECT
 #use delay(clock=20000000)
